@@ -12,3 +12,12 @@ services:
     volumes:
       - ./db_setup/mongo-init.js:/docker-entrypoint-initdb.d/mongo-init.js:ro
 
+  api:
+    image: art_exhibition_api:0.0.0
+    env_file:
+      - .compose-env
+    depends_on:
+      - mongo
+    restart: always
+    ports:
+      - "4000:4000"
