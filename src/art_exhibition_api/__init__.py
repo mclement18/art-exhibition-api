@@ -14,7 +14,7 @@ def create_app():
     scheduler.init_app(app)
 
     from . import tasks
-    scheduler.add_job('first_task', tasks.first_task)
+    scheduler.add_job('first_task', tasks.first_task, coalesce=True, max_instances=1)
     scheduler.start()
     
     from .exhibitions import bp

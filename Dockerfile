@@ -20,4 +20,4 @@ ENV FLASK_DEBUG 0
 ENV FLASK_APP art_exhibition_api
 
 EXPOSE 4000
-CMD [ "gunicorn", "-w", "4", "-b", "0.0.0.0:4000", "art_exhibition_api:create_app()" ]
+CMD [ "gunicorn", "-w", "4", "-b", "0.0.0.0:4000", "--preload", "art_exhibition_api:create_app()" ]
